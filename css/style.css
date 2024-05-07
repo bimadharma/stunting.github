@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+:root{
+  --blue:#0f182a;
+}
+
+*{
+  font-family: 'Work Sans', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-decoration: none;
+}
+
+*::selection{
+  background:var(--blue);
+  color:#fff;
+}
+
+html{
+  font-size: 60.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body{
+  background:#0f182a;
+}
+
+#content{
+  display: flex;
+  flex-direction: column;
+}
+
+section{
+  padding:7rem;
+}
+
+.heading{
+  text-align: center;
+  font-size: 3.5rem;
+  padding:1rem;
+  color:#DFCDC3;
+}
+
+.heading span{
+  color:var(--blue);
+}
+
+header{
+  position: fixed;
+  top:0; left: 0; right:0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #FDD55E;
+  padding:2rem 9%;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo{
+  width: 180px;
+}
+
+/* ================  HAMBURGER MENU  ================= */
+header .navbar a{
+  font-size: 2rem;
+  margin-left: 2rem;
+  color:#0a0a14;
+}
+
+header .navbar a:hover{
+  color:var(--blue);
+}
+
+#menu-bar{
+  font-size: 3rem;
+  cursor: pointer;
+  color:#0f182a;
+  padding:.5rem 1.5rem;
+  display: none;
+}
+
+/* ================  HOME  ================= */
+.banner{
+  display: flex;
+  flex-wrap: nowrap;
+  gap:1.5rem;
+  min-height: 100vh;
+  align-items: center;
+  background-color: #0a0a14;
+  background-size: cover;
+}
+
+.banner .content{
+  flex:1 1 40rem;
+  padding-top: 6.5rem;
+  color: #FDD55E;
+}
+
+.banner .content h2{
+  font-size:3rem;
+  color:#FDD55E;
+  padding:0.5rem;
+  font-weight: bolder;
+  animation: 2s slide-right 1s forwards;
+  transform:translateX(-100%);
+}
+
+.banner .content u{
+  text-decoration: underline;
+}
+
+.banner .content p{
+  font-size:3rem;
+  color:#FDD55E; 
+  padding:0.5rem;
+  font-weight: bolder;
+  animation: 3s slide-right 1.5s forwards;
+  transform:translateX(-100%);
+}
+
+.banner .content h3{
+  font-size: 5rem;
+  animation: 1.5s slide-right 0.5s forwards;
+  transform:translateX(-100%);
+}
+
+.banner .content img{
+  height: 20rem;
+  width: 20rem;
+  object-fit: cover;
+  border-radius: 30px;
+  margin-left: 800px;
+  margin-top: -150px;
+}
+
+@keyframes float{
+  0%, 100%{
+    transform: translateY(0rem);
+  }
+  50%{
+    transform: translateY(3rem);
+  }
+}
+
+@keyframes slide-right {
+  to {
+    transform:translateX(0);
+  }
+}
+
+
+/* ================  TIMELINE  ================= */
+.timeline{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+  padding:1rem;
+  padding-bottom: 150px;
+}
+
+.timeline .box{
+  flex:1 1 25rem;
+  padding:1rem;
+  text-align: center;
+}
+
+.timeline .box i{
+  font-size: 10rem;
+  color: rgb(19, 19, 19);
+}
+
+/* ================  FOOTER  ================= */
+footer{
+  background:#FDD55E;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .credit{
+  color:#0a0a14;
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+footer .credit span{
+  color:var(--red);
+}
+
+
+
+/* ================  FITUR SCROLL ON TOP  ================= */
+#scroll-to-top{
+  font-size: 3rem;
+  background:var(--red);
+  position: fixed;
+  color:#FDD55E;
+  top:-120%;
+  right:2rem;
+  padding:1rem 1rem;
+  border-radius: 1.5rem;
+  transition: 1s linear;
+  z-index: 1000;
+}
+
+#scroll-to-top.active{
+  top:calc(100% - 12rem)
+}
+
+
+/* ================  MEDIA  ================= */
+
+@media(max-width:991px){
+
+  html{
+    font-size: 55%;
+  }
+
+  header{
+    padding:2rem;
+  }
+
+  .banner{
+    background-size: cover;
+  }
+
+}
+
+@media(max-width:768px){
+
+  #menu-bar{
+    display: initial;
+  }
+
+  header .navbar{
+    position: absolute;
+    top:100%; left: 0; right:0;
+    background: #0f182a;
+    border-top: .1rem solid rgba(0,0,0,.1);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .navbar.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  
+  .banner{
+    background-size: cover;
+    background-position: center;
+    min-height: 64vh;
+    width: 100%;
+  }
+
+  .img{
+    width:50%;
+  }
+
+  .banner .content{
+    flex:0 0rem;
+    padding-top: 6.5rem;
+    color: #FDD55E;
+  }
+
+  .banner .content h3{
+    font-size: 4rem;
+  }
+
+  .banner .content h2{
+    font-size: 2rem;
+  }
+
+  .banner .content p{
+    font-size: 1.0rem;
+  }
+
+  header .navbar a{
+    margin: 1.5rem;
+    padding:1.5rem;
+    display: block;
+    border:.2rem solid rgba(0,0,0,.1);
+    border-left:.5rem solid var(--blue);
+    background:#FDD55E;
+  }
+
+  .series{
+    gap:3.5rem;
+    margin-bottom: -70px;
+  }
+
+  .gambar1 {
+    width: 100%;
+    height: 435px;
+  }
+
+  .gambar2 {
+    width: 100%;
+    height: 435px;
+  }
+
+  .gambar3 {
+    width: 100%;
+    height: 250px;
+  }
+
+  section{
+    padding:4rem;
+  }
+
+  .games .box-container{
+    gap:3rem;
+  }
+
+  .about .box h3{
+    font-size: 3rem;
+    padding:1rem;
+  }
+  
+  .about .box p{
+    font-size: 1.5rem;
+    padding:1rem;
+  }
+
+  footer .credit{
+    font-weight: normal;
+    font-size: 1.5rem;
+  }
+
+}
+
